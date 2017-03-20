@@ -6,6 +6,13 @@
 </head>
 <body>
 <h1>Hello blog.</h1>
-<p>{{ hello }}</p>
+<br/>
+<h2><a href="{% url 'blog:edit' %}">新建文章</a></h2>
+<br/>
+{% for article in articles %}
+    <a href="{% url 'blog:article_page' article.id %}">{{ article.title }}</a><br/>
+{% endfor %}
+
+
 </body>
 </html>

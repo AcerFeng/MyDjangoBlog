@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edti article</title>
+</head>
+<body>
+<form method="post" action="{% url 'blog:edit_action' %}">
+    {% csrf_token %}
+    <input type="hidden" name="article_id" value="{{ article.id | default:'0' }}">
+    <label>标题：<input value="{{ article.title }}" name="title"></label><br/>
+    <label>内容：<input value="{{ article.content }}" name="content"></label>
+    <br/>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
